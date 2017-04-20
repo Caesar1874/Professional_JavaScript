@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>计时器</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript">
+	window.onload=function(){
+		invoke(f,1000,1000,30000);		
+			//invoke():按参数个数以不同方式调用f()
+			//start:指定时间之后调用一次f();
+			//interval:start之后每隔interval调用一次f();
+			//end:在end之后停止循环调用f();
+
+
+		function invoke(f,start,interval,end){
+
+			if(!start) start=0;
+			if(arguments<=2){
+				setTimeout(f,start);
+			}
+			else
+			{
+				function repeat(){
+					var h=setInterval(f,interval);
+					if(end){ setTimeout(function(){ clearInterval(h);},end)};
+				}				
+				setTimeout(repeat,start);
+
+			}
+		}
+		//f():在输入框中进行读秒
+		function f(){
+			var clock=document.getElementById("clock");
+			// var time=new Date();
+			// var second=time.getSeconds();
+			// var i=0;
+			clock.value++;
+
+		}
+	}
+</script>
+</head>
+<body>
+    <input type="text" id="clock" />
+</body>
+</html>

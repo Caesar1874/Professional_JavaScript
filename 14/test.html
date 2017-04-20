@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Examples</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<link href="" rel="stylesheet">
+
+</head>
+<body>
+	<p id="red" >rehjfkgdshjcfhjs</p>
+	<script type="text/javascript">
+	//用POST方法发送纯文本到服务器
+	function postMessage(msg){
+		var request=new XMLHttpRequest();
+		request.open("POST","/log.php");//用POST向服务器发送脚本
+		request.setXMLHttpRequest("Content-Type","text/palin;charset=UTF-8");//指定请求头信息，说明请求主体时纯文本
+		request.send(msg) //发送请求并立即返回，忽略响应和错误
+	}
+
+	//使用GET方法或者指定内容，响应成功后验证响应主体的类型，并传递给指定回调函数
+	function getText(url,callback){
+		var request=new XMLHttpRequest();
+		request.ope("GET",url);
+
+		//注册事件处理函数
+		request.onreadystatechange=function(){
+			if(readyState===4 && request.status===200){//请求完成且响应成功
+				var type=request.getResponseHeader("Content-Type");//获取指定响应头信息
+				if(type.match(/^text/)){//验证响应主体时纯文本
+					callback(request.responseText);//将响应主体传递给回调函数
+				}
+			}
+		}
+	}	
+	
+
+
+
+
+
+	</script>	
+	
+</body>
+</html>
