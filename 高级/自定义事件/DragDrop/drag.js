@@ -11,48 +11,33 @@ const followPointer = (target, event)=> {
 class DragDrop {
     constructor() {
         this.target = null
+        this.handleEvent = this.handleEvent.bind(this)
     }
     enable() {
-        document.addEventListener('mousedown', this.handleMousedown)
-        document.addEventListener('mousemove', this.handleMousemove)
-        document.addEventListener('mouseup', this.handleMouseup)
+        const handleEvent = this.handleEvent
+        document.addEventListener('mousedown', handleEvent)
+        document.addEventListener('mousemove', handleEvent)
+        document.addEventListener('mouseup', handleEvent)
     }
     disable() {
-        document.removeEventListener('mousedown', this.handleMousedown)
-        document.removeEventListener('mousemove', this.handleMousemove)
-        document.removeEventListener('mouseup', this.handleMouseup)
+        const handleEvent = this.handleEvent
+        document.removeEventListener('mousedown', handleEvent)
+        document.removeEventListener('mousemove', handleEvent)
+        document.removeEventListener('mouseup', handleEvent)
     }
 
-    handleMousedown(event) {
-        console.log('mousedown')
-        if(event.target.classList.contains('draggable')) {
-            this.target = event.target
-        }
-    }
 
-    handleMousemove(event) {
-        if(this.target !== null) {
-            console.log('mosemove')
-            followPointer(this.target, event)
-        }
-    }
-
-    handleMouseup(event) {
-        console.log('mouseup')
-        this.target = null
-    }
-
-    /*handleEvent(event) {
+    handleEvent(event) {
         const target = event.target;
         const type = event.type
-
+        console.log('this', this)
         if(type === 'mousedown') {
             console.log('mousedown')
             if(target.classList.contains('draggable')) {
+                console.log('this.target', this.target)
                 this.target = target
             }
         } else if(type === 'mousemove') {
-            console.log(this)
             if(this.target !== null) {
                 console.log('mosemove')
                 followPointer(this.target, event)
@@ -61,7 +46,7 @@ class DragDrop {
             console.log('mouseup')
             this.target = null
         }
-    }*/
+    }
 }
 
 const dragDrop = (() => {
