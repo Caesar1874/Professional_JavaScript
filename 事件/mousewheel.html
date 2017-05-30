@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #btn {
+            font-size: 30px;
+            border: 1px solid green;
+        }
+        #example {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+
+        }
+        .hide {
+            display: none
+        }
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <span id="btn">按钮</span>
+    <div id="example" class="hide"></div>
+    <script>
+        var btn = document.querySelector('#btn')
+        var example = document.querySelector('#example')
+        btn.addEventListener('mousewheel', function(event) {
+            console.log(event)
+            console.log('wheel')
+            example.classList.add('show')
+            setTimeout(function() {
+                example.classList.remove('show')
+            }, 1500)
+            const width = window.getComputedStyle(example).width
+            console.log('width', width)
+            const y = - event.deltaY
+            example.style.width = parseInt(width) + y / 10 + 'px'
+        })
+
+    </script>
+</body>
+</html>
