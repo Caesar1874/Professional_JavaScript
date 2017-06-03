@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 300%;
+            border: 1px solid green;
+        }
+    </style>
+</head>
+<body>
+    <h5>e.preventDefault 与 e.stopPropagation 的区别</h5>
+    <div id="example">
+        preventDefault 是取消事件, 实现指定的默认行为将不发生；但是不阻止事件传播
+        stopPropagation 是阻止事件的传播
+        stopImmediatePropagation 从当前元素阻止事件的传播，不会触发任何监听器
+
+    </div>
+    <a href="www.baidu.com" id="hyperlink">百度一下</a>
+    <script>
+        var link = document.getElementById("hyperlink");
+        var div = document.getElementById("example");
+        // 点击链接不会跳转，但仍传播
+        link.addEventListener("click", function(e) {
+            e.preventDefault();
+        });
+        // 事件不在传播
+        div.addEventListener("click", function(e) {
+            e.stopPropagation();
+        });
+        document.body.addEventListener("click", function(e) {
+            console.log("click body");
+        });
+
+
+
+      /*  div.addEventListener("click", function(e) {
+            console.log("dblclick");
+        })*/
+    </script>
+</body>
+</html>

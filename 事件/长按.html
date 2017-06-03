@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: lavender;
+        }
+    </style>
+</head>
+<body>
+<div id="longtime-touch-one">
+    longtime touch one
+</div>
+<br>
+<div id="longtime-touch-two">
+    longtime touch two
+</div>
+<script>
+
+    // 短按无效，长按后触发事件
+
+    var one = document.getElementById("longtime-touch-one");
+    one.addEventListener("click", function () {
+        console.log("click")
+    });
+
+    one.addEventListener("touchstart", function (event) {
+        var timeout = setTimeout("alert('长按')", 500);
+    });
+
+    //     长按松开之后触发事件
+    var two = document.getElementById("longtime-touch-two");
+    var startTime;
+    two.addEventListener("touchstart", function (event) {
+        startTime = new Date;
+    });
+    two.addEventListener("touchmove", function (event) {
+
+
+    });
+    two.addEventListener("touchend", function (event) {
+        if (new Date() - startTime > 500) {
+            alert("success")
+
+        }
+    })
+</script>
+</body>
+</html>

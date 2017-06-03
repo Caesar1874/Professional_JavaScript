@@ -7,23 +7,22 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        .draggable {
+        div {
+            /*display: inline-block;*/
+            border: 1px solid green;
+            height: 800px;
+            float: left;
+        }
+        #left {
             width: 200px;
-            height: 200px;
-            background-color: red;
-            position: absolute;
-            left: 0;
-            top: 0;
+        }
+        #right {
+            width: calc(100% - 210px);
         }
     </style>
 </head>
 <body>
-<div class="draggable">
-
-</div>
-<button id="undo">undo undo undo </button>
-<script src="drag.js">
-
-</script>
+<div id="left"></div>
+<div id="right"></div>
 </body>
 </html>
