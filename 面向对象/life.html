@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+    .root {
+      width: 1000px;
+      height: 1000px;
+      overflow: hidden;
+      border: 1px solid green;
+    }
+    div[class*=item] {
+      width: 8px;
+      height: 8px;
+      float: left;
+      border: 1px solid darkgray;
+    }
+  </style>
+</head>
+<body>
+<button class="startBtn">START</button>
+<br>
+<div class="root">
+
+</div>
+
+<script>
+
+  const insertCeil = (index) => {
+      const ceil = "<div class='item' + `item{index}`></div>"
+      const root = document.querySelector('.root')
+      root.insertAdjacentHTML('beforeend', ceil)
+  }
+  const Grid = () => {
+    const num = 10000
+    for(let index = 0; index < num; index++) {
+        insertCeil(index)
+    }
+  }
+
+  const clickCeil = () => {
+      const root = document.querySelector('.root')
+      root.addEventListener('click', (e) => {
+          const target = e.target
+          if(target.classList.contains("item")) {
+              target.style.backgroundColor = 'black'
+          }
+      })
+  }
+
+  const clickBtn = () => {
+    const startBtn = document.querySelector('.startBtn')
+      startBtn.addEventListener('click', (e) => {
+
+      })
+  }
+  const bindEvents = () => {
+      clickCeil()
+
+  }
+
+  const _main = ()=> {
+    Grid()
+    bindEvents()
+  }
+  window.onload = () => {
+      _main()
+  }
+</script>
+</body>
+</html>
