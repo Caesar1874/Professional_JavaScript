@@ -1,0 +1,60 @@
+{
+    "emptyIdentifier": 1,
+    "code": 1,
+    "data": {
+        "friendRankingList": [
+            {
+                "customerId": "测试内容g1j3",
+                "fireGrade": 7,
+                "headImg": "http://img3.duitang.com/uploads/item/201507/30/20150730163111_YZT5S.jpeg",
+                "kpiValue": 600,
+                "kpiValueToPreOne": 150,
+                "nickName": "小二本人",
+                "ranking": 16
+            },
+            {
+                "customerId": "测试内容g1j3",
+                "fireGrade": 19,
+                "headImg": "http://img3.duitang.com/uploads/item/201507/30/20150730163111_YZT5S.jpeg",
+                "kpiValue": 9999,
+                "nickName": "张三10"
+            },
+            {
+                "customerId": "测试内容g1j3",
+                "fireGrade": 18,
+                "headImg": "http://img3.duitang.com/uploads/item/201507/30/20150730163111_YZT5S.jpeg",
+                "kpiValue": 9000,
+                "kpiValueToPreOne": 150,
+                "nickName": "张三09",
+                "ranking": 16
+            }
+        ],
+        "networkRankingList": [
+            {
+                "customerId": "测试内容0pt3",
+                "fireGrade": 7,
+                "headImg": "http://img3.duitang.com/uploads/item/201507/30/20150730163111_YZT5S.jpeg",
+                "kpiValue": 600,
+                "kpiValueToPreOne": 150,
+                "nickName": "小二本人",
+                "ranking": 16
+            },
+            {
+                "customerId": "测试内容0pt3",
+                "fireGrade": 19,
+                "headImg": "http://img3.duitang.com/uploads/item/201507/30/20150730163111_YZT5S.jpeg",
+                "kpiValue": 9999,
+                "nickName": "张三10"
+            },
+            {
+                "customerId": "测试内容0pt3",
+                "fireGrade": 18,
+                "headImg": "http://img3.duitang.com/uploads/item/201507/30/20150730163111_YZT5S.jpeg",
+                "kpiValue": 9000,
+                "kpiValueToPreOne": 150,
+                "nickName": "张三09",
+                "ranking": 16
+            }
+        ]
+    }
+}
