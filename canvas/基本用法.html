@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .drawing {
+            width: 500px;
+            height: 500px;
+            border: 1px solid cornflowerblue;
+        }
+    </style>
+</head>
+<body>
+<canvas class="drawing"></canvas>
+
+<script>
+    const drawing = document.querySelector('.drawing')
+    // 获取2d上下文
+    const context = drawing.getContext('2d')
+    // 指定颜色
+    context .strokeStyle = 'red'
+    context.fillStyle = '#0000ff'
+
+    // 绘制矩形
+    context.fillRect(10, 10, 50, 50)
+    context.strokeRect(60, 60, 100, 100)
+
+
+</script>
+</body>
+</html>

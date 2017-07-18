@@ -3,3 +3,9 @@ const log = (function (){
 })()
 
 module.exports = log;
+
+const test = (name, callback) => {
+    const testResult = callback
+    const testText = testResult ? '通过' : '失败'
+    console.log(`${name} - ${time} - `)
+}
