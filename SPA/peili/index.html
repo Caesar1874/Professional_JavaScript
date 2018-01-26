@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>todo_spa</title>
+    <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!--<link rel="stylesheet" href="todo_spa.css">-->
+</head>
+<body>
+<nav>
+    <ul class="nav nav-pills">
+        <li role="presentation"><button id="id-a-add">Page Todo Add</button></li>
+        <li role="presentation" class="active"><button id="id-a-list" >Page Todo List</button></li>
+    </ul>
+</nav>
+
+<div class="jumbotron">
+    <h1>新创建的TODO块的名称:</h1>
+    <div class="input-group">
+        <input type="text" id="id-input-add" class="form-control" placeholder="New Block name">
+        <span class="input-group-btn">
+                    <button id="id-button-add" class="btn btn-success" type="button">Add</button>
+                </span>
+    </div>
+</div>
+
+<div id="id-div-todospa">
+
+</div>
+<script src="todo_spa.js"></script>
+</body>
+</html>

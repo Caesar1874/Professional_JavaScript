@@ -21,3 +21,10 @@ function add(num1, num2) {
 // realFunc
 const curriedAdd = curry(add, 5)
 console.log(curriedAdd(3))
+
+
+function add(num1, num2) {
+  return num1 + num2
+}
+const curriedAdd = add.bind(this, 23)
+console.log(curriedAdd(24))

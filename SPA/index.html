@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #container {
+            width: 100%;
+            height: 300px;
+            border: 1px solid green;
+        }
+    </style>
+</head>
+<body>
+<h1>index</h1>
+<span id="repos">repos</span>
+<br>
+<span id="about">about</span>
+<div id="container">
+
+</div>
+
+<script>
+    window.onload = function() {
+        var reposHTML =
+            `
+                <h1>repos</h1>
+            `;
+        var aboutHTML =
+            `
+                <h1>about</h1>
+            `;
+
+        document.getElementById("repos").addEventListener("click", function(event) {
+            console.log("click repos");
+            document.getElementById("container").innerHTML = reposHTML;
+            history.pushState({page: "repos"}, "1", "#repos");
+
+        });
+
+        document.getElementById("about").addEventListener("click", function(event) {
+            console.log("click abour");
+            document.getElementById("container").innerHTML=aboutHTML;
+            history.pushState({page: "about"}, "2", "#about");
+
+        })
+
+        window.addEventListener("popstate", function(event) {
+            console.log("popState");
+            var page = event.state.page;
+            document.getElementById("container").innerHTML = "";
+            console.log("page", page);
+        })
+    }
+
+
+</script>
+</body>
+</html>
