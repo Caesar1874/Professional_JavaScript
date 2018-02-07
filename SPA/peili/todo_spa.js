@@ -2,7 +2,7 @@
 const log = function() {
     console.log.apply(console, arguments)
 }
-// 简化 DOM 中的元素选择器，e 是 element 的缩写
+// 简化 dom 中的元素选择器，e 是 element 的缩写
 const e = function(selector, s = document) {
     return s.querySelector(selector)
 }

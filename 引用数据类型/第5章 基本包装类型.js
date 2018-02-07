@@ -121,7 +121,7 @@ var space = "  abc  ";
 console.log(space.trim());
 
 // 大小写转换
-var words = "HTML and CSS";
+var words = "HTML and css";
 console.log(words.toLowerCase());
 console.log(words.toUpperCase());
 
