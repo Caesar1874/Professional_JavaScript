@@ -6,10 +6,16 @@ function add() {
             return outArgs + innerArgs
         }
     } else {
-        return arguments[0] + arguments[1]
+        let sum = 0
+        for(let i = 0; i < arguments.length; i++) {
+            sum += arguments[i]
+        }
+        return sum
     }
+    
 
 }
 
-console.log(add(1)(2))
+console.log(add(2)(2))
 console.log(add(2, 2))
+console.log(add(2, 2, 2))
