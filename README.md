@@ -2,9 +2,6 @@
 
 ### plan
 - Web-API-library
-- JavaScript-library
-- ES6-library
-- CSS-library
 
 ### 内容列表
 - ajx

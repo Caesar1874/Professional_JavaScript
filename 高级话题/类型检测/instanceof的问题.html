@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<iframe src="" frameborder="0" id="iframe-1"></iframe>
+<iframe src="" frameborder="0" id="iframe-2"></iframe>
+
+<script>
+
+    const testInstanceof = () => {
+        const _e = document.querySelector.bind(document)
+        const log = console.log
+
+        // instanceof 检测的实例必须与 构造函数 处于同一个全局作用域中
+
+        // 构造两个全局作用域
+        const iframe1 = _e('#iframe-1')
+        const iframe2 = _e('#iframe-2')
+        const window1 = iframe1.contentWindow
+        const window2 = iframe2.contentWindow
+
+        // 两个构造函数
+        const Array1 = window1.Array
+        const Array2 = window2.Array
+
+        // 两个实例
+        const inst1 = new Array1()
+        const inst2 = new Array2()
+
+        // 检测
+        const result1 = inst1 instanceof Array2
+        const result2 = inst2 instanceof Array1
+
+        const result3 = inst1 instanceof Array1
+        const result4 = inst2 instanceof Array2
+
+        log(result1, result2, result3, result4)
+    }
+
+
+    testInstanceof()
+
+</script>
+</body>
+</html>
