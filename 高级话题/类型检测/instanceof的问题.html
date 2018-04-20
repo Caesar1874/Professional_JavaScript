@@ -11,14 +11,14 @@
 <iframe src="" frameborder="0" id="iframe-1"></iframe>
 <iframe src="" frameborder="0" id="iframe-2"></iframe>
 
+<script src="安全的类型检测.js"></script>
 <script>
+    const log = console.log
 
-    const testInstanceof = () => {
-        const _e = document.querySelector.bind(document)
-        const log = console.log
-
-        // instanceof 检测的实例必须与 构造函数 处于同一个全局作用域中
-
+    // 创建位于不同全局作用域下的原生构造函数
+    // type 是 Array Function 等原生构造函数名
+    const createConstructor = (type) => {
+         const _e = document.querySelector.bind(document)
         // 构造两个全局作用域
         const iframe1 = _e('#iframe-1')
         const iframe2 = _e('#iframe-2')
@@ -26,10 +26,15 @@
         const window2 = iframe2.contentWindow
 
         // 两个构造函数
-        const Array1 = window1.Array
-        const Array2 = window2.Array
+        const Array1 = window1[type]
+        const Array2 = window2[type]
 
-        // 两个实例
+        return [Array1, Array2]
+    }
+
+    // instanceof 检测的实例必须与 构造函数 处于同一个全局作用域中
+    const testInstanceof = () => {
+        const [Array1, Array2] = createConstructor('Array')
         const inst1 = new Array1()
         const inst2 = new Array2()
 
@@ -43,8 +48,25 @@
         log(result1, result2, result3, result4)
     }
 
+    // 安全类型检测
 
-    testInstanceof()
+    const testSafeType = () => {
+        const [Array1, Array2] = createConstructor('Array')
+        const inst1 = new Array1()
+        const inst2 = new Array2()
+
+        const result1 = isArray(inst1)
+        const result2 = isArray(inst2)
+        log('result', result1, result2)
+    }
+
+    const __main = () => {
+        testInstanceof()
+
+        testSafeType()
+    }
+
+    __main()
 
 </script>
 </body>
