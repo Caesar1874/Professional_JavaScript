@@ -1,5 +1,8 @@
 # Professional JavaScript source code
 
+### 原则
+- 在 JavaScript 中描述对象等引用类型的值是应使用 指针 的概念, 基本类型不是指针
+
 ### plan
 - Web-API-library
 

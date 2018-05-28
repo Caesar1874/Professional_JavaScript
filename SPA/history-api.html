@@ -24,36 +24,45 @@
 </div>
 
 <script>
-    window.onload = function() {
+
+    const log = console.log
+    const bindEvents = () => {
         var reposHTML =
-            `
+          `
                 <h1>repos</h1>
-            `;
-        var aboutHTML =
             `
+        var aboutHTML =
+          `
                 <h1>about</h1>
-            `;
+            `
 
-        document.getElementById("repos").addEventListener("click", function(event) {
-            console.log("click repos");
-            document.getElementById("container").innerHTML = reposHTML;
-            history.pushState({page: "repos"}, "1", "#repos");
-
-        });
-
-        document.getElementById("about").addEventListener("click", function(event) {
-            console.log("click abour");
-            document.getElementById("container").innerHTML=aboutHTML;
-            history.pushState({page: "about"}, "2", "#about");
+        document.getElementById('repos').addEventListener('click', function (event) {
+            console.log('click repos')
+            document.getElementById('container').innerHTML = reposHTML
+            history.pushState({ page: 'repos' }, '1', '#repos')
 
         })
 
-        window.addEventListener("popstate", function(event) {
-            console.log("popState");
-            var page = event.state.page;
-            document.getElementById("container").innerHTML = "";
-            console.log("page", page);
+        document.getElementById('about').addEventListener('click', function (event) {
+            console.log('click abour')
+            document.getElementById('container').innerHTML = aboutHTML
+            history.pushState({ page: 'about' }, '2', '#about')
+
         })
+    }
+
+    window.onload = function () {
+        bindEvents()
+        log('hash', location.hash)
+
+        window.addEventListener('popstate', function (event) {
+            console.log('popState')
+
+            if (true) {
+                history.pushState({ page: 'about' }, '2', '#about')
+            }
+        })
+
     }
 
 
